@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body{
+            background-color: lightgrey;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            color: white;
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 5px;
+            width: 250px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        select{
+            background-color: #007bff;
+            color: white;
+            font-family:  sans-serif;
+            padding: 20px;
+            border: none;
+            font-weight: 900;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="selectDiv">
+        <select id="categorySelect">
+            <option value="">Select Category</option>
+        </select>
+    </div>
+
+    <div class="container" id="productsContainer"></div>
+
+    <script>
+        var all = [
+            { category: "mens", name: "Nike Shirt", price: 500 },
+            { category: "mens", name: "Adidas Pants", price: 600 },
+            { category: "women", name: "Dress", price: 700 },
+            { category: "women", name: "Handbag", price: 300 },
+            { category: "kids", name: "Toy Car", price: 200 },
+            { category: "kids", name: "Doll", price: 150 }
+        ];
+
+        var productsContainer = document.getElementById('productsContainer');
+        var categorySelect = document.getElementById('categorySelect');
+
+            
+        var categories = [];
+        all.forEach(product => {
+            if (!categories.includes(product.category)) {
+                categories.push(product.category);
+                var option = document.createElement('option');
+                option.value = product.category;
+                option.textContent = product.category.charAt(0).toUpperCase() + product.category.slice(1);
+                categorySelect.appendChild(option);
+            }
+        });
+
+        function displayProductsByCategory(category) {
+            productsContainer.innerHTML = '';
+            var filteredProducts = all.filter(product => product.category === category);
+            
+            filteredProducts.forEach(product => {
+                var cardHTML = `
+                    <div class="card">
+                        <h3>${product.name}</h3>
+                        <p>Price: ${product.price} Rs</p>
+                        <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                    </div>
+                `;
+                productsContainer.innerHTML += cardHTML;
+            });
+        }
+
+        function addToCart(name, price) {
+            // You can implement cart functionality here
+            console.log('Added to cart:', name, '- Rs', price);
+        }
+
+        // Display products for class 1 student (age 5 years)
+        var age = 5;
+        var categoryForClass1 = "kids"; // Assume class 1 students are in the "kids" category
+        displayProductsByCategory(categoryForClass1);
+
+        // Event listener to display products based on selected category
+        categorySelect.addEventListener('change', function() {
+            var selectedCategory = this.value;
+            if (selectedCategory) {
+                displayProductsByCategory(selectedCategory);
+            } else {
+                productsContainer.innerHTML = '';
+            }
+        });
+    </script>
+</body>
+</html>
