@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
-        body{
-            background-color: lightgrey;
+        body,html{
+            font-family: "Raleway", sans-serif !important;
+            background: rgb(235,188,118);
+            background: linear-gradient(90deg, rgba(235,188,118,1) 9%, rgba(255,136,94,1) 100%);
         }
         .container {
             display: flex;
@@ -17,7 +22,8 @@
         }
 
         .card {
-            color: white;
+            background-color: white !important;
+            color: rgb(249, 166, 135);
             padding: 10px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             border-radius: 5px;
@@ -35,19 +41,21 @@
         }
 
         .card button {
-            padding: 5px 10px;
-            background-color: #007bff;
+            padding: 10px 10px;
+            background-color: rgb(249, 166, 135) !important;
+            /* color: rgb(249, 166, 135); */
             color: #fff;
             border: none;
             cursor: pointer;
         }
         select{
-            background-color: #007bff;
-            color: white;
-            font-family:  sans-serif;
+            background-color: white !important;
+            color: rgb(249, 166, 135);
+font-size: 15px;
+margin: 0px auto;
             padding: 20px;
             border: none;
-            font-weight: 900;
+            /* font-weight: 900; */
 
         }
     </style>
@@ -62,6 +70,7 @@
     <div class="container" id="productsContainer"></div>
 
     <script>
+        console.log(document.getElementById("selectDiv").hasChildNodes());
         var all = [
             { category: "mens", name: "Nike Shirt", price: 500 },
             { category: "mens", name: "Adidas Pants", price: 600 },
@@ -95,7 +104,7 @@
                     <div class="card">
                         <h3>${product.name}</h3>
                         <p>Price: ${product.price} Rs</p>
-                        <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                        <button id="add" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
                     </div>
                 `;
                 productsContainer.innerHTML += cardHTML;
@@ -104,7 +113,7 @@
 
         function addToCart(name, price) {
             // You can implement cart functionality here
-            console.log('Added to cart:', name, '- Rs', price);
+            alert('SuccessFull Added to cart');
         }
 
         // Display products for class 1 student (age 5 years)
@@ -124,3 +133,4 @@
     </script>
 </body>
 </html>
+
