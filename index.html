@@ -114,13 +114,68 @@ justify-content: center;
         opacity: 0.600 !important;
         transition: 0.2s ease !important;
         }
+        #pop{
+            transition: 1.2s ease;
+            background-color: white;
+height: 290px;
+width: 400px;
+position: fixed;
+left: 40%;
+top: 20%;
+z-index: 333330939393;
+box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+/* display: none ;         */
+}
+.rtr{
+    color: white;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    padding: 10px 25px;height: 200px;
+    margin: 5px 0px;
+    border-radius: 10px;
+    background-color: rgb(249, 166, 135);;;
+}
+.fa-check{
+    background-color: white;
+    color: rgb(249, 166, 135);
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 50px;
+    margin-top: -50px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+.fa-window-close{
+    /* background-color:  */
+    color:rgb(249, 166, 135);;;;
+    padding: 1px;
+    border-radius: 50% !important;
+    font-size: 58px;
+}
     </style>
 </head>
 <body>
-    <div class="alllll container-fluid animate__animated animate__fadeIn" id="remov"></div>
-    <audio autoplay>
-        <source src="startup.mp3" type="audio/mp3" >
+    <audio id="myAudio">
+        <source src="duolingo_wrong.mp3" type="audio/mp3">
+     
     </audio>
+    <div id="pop">
+        <div class="d-flex justify-content-end align-items-end">
+            <span id="clo" class="text-center ">
+                <i class="fa fa-window-close" aria-hidden="true"></i>
+            </span>
+        </div>
+        
+            <div class="d-flex justify-content-center align-items-center flex-column">
+<h1 class="text-center pt-4 rtr">Your Order Is <BR> Added Into Card</h1>
+    <i class="fa-solid fa-check"></i>
+    <!-- <img src="icons8-checkmark.gif" class="" alt=""> -->
+    <!-- <input type="number" class="col-10 p-3" placeholder="Enter Your Number">     -->
+</div>
+</div>
+    <audio id="myAudio" autoplay>
+        <source src="startup.mp3" type="audio/mp3">
+
+    </audio>
+    <!-- <div class="alllll container-fluid animate__animated animate__fadeIn" id="remov"></div> -->
 <h1 class="text-white  justify-content-end text-end p-3">Enjoy Your Meals with<BR> Family and Friends </h1>
  
     <div id="selectDiv" >
@@ -136,5 +191,3 @@ justify-content: center;
   </body>
 </body>
 </html>
-
-
