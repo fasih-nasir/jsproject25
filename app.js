@@ -1,6 +1,9 @@
 
 
 
+
+
+
 var all = [
     { category: "SandWich", name: "Club SandWich", price: 500 },
     { category: "SandWich", name: "Cream SandWich", price: 600 },
@@ -31,12 +34,21 @@ function displayProducts(products) {
                 <h3>${products[i].name}</h3>
                 <p>Category: ${products[i].category}</p>
                 <p>Price: ${products[i].price} Rs</p>
-                    <butto id="order" class"btn or">Order Now</button>
+                    <button id="order" onclick="order()" class"btn or">Order Now</button>
             </div>
         `;
         productsContainer.innerHTML += cardHTML;
     }
 }
+function order(){
+    document.getElementById("pop").style.display="block"
+    var audio = document.getElementById("myAudio");
+    audio.play();
+}
+document.getElementById("clo").addEventListener("click",()=>{
+     document.getElementById("pop").style.display="none"
+})
+// order()
 
 
 var categories = [];
@@ -77,7 +89,15 @@ displayProducts(all);
 var remov=document.getElementById("remov").style.display="block"
 function fn1() {
     var remov = document.getElementById("remov");
-    remov.style.display = "none";
+    
+    // Play audio
+
+
+    // Hide element after 2.5 seconds
+    setTimeout(function() {
+        remov.style.display = "none";
+    }, 2500);
 }
 
-setTimeout(fn1, 3500);
+// Call fn1() to start audio and hide element
+fn1();
